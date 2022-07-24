@@ -44,7 +44,11 @@ class SignUpActivity : AppCompatActivity() {
             binding.mailRegister.error = "mail invalide"
         }else if (TextUtils.isEmpty(password)){
             binding.passwordRegister.error= "entrer votre mot de passe"
-        }else{
+        }else if(password.length < 6){
+            binding.passwordRegister.error = "le mot de passe doit contenir aumoins 6 caractere"
+
+        }else
+        {
             firebaseSignUp()
         }
 
