@@ -25,15 +25,12 @@
         android:text="Se Deconnecter"
         android:id="@+id/logout"
         />
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
+    <Button
+        android:id="@+id/pub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-                >
-
-    </com.google.android.gms.ads.AdView>
+        android:text="pub"
+        />
 
 
     </LinearLayout>
