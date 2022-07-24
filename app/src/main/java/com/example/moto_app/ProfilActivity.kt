@@ -3,6 +3,7 @@ package com.example.moto_app
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.moto_app.databinding.ActivityLoginBinding
 import com.example.moto_app.databinding.ActivityProfilBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
@@ -14,7 +15,8 @@ class ProfilActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profil)
+        binding = ActivityProfilBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
         binding.logout.setOnClickListener {

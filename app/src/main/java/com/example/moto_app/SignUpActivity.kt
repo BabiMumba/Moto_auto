@@ -65,7 +65,7 @@ class SignUpActivity : AppCompatActivity() {
             }
             .addOnFailureListener {
                 progressDialog.dismiss()
-                Toast.makeText(this, "compte creer avec succer", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "erreur compte non creer", Toast.LENGTH_SHORT).show()
 
             }
     }
