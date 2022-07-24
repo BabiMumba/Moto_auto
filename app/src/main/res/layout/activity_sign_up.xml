@@ -44,12 +44,9 @@
         android:layout_gravity="end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="creer un compte"
+        android:text="jai un compte"
         android:textStyle="italic"
         android:id="@+id/mycount"
         />
-
-
-
 
 </LinearLayout>
