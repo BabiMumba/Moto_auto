@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "942405378178",
+    "project_id": "moto-app-9c5de",
+    "storage_bucket": "moto-app-9c5de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942405378178:android:f18ee80e3f2bd9153bd49b",
+        "android_client_info": {
+          "package_name": "com.example.moto_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "942405378178-0tuqhmrteu3pkb3jkjlrihma6cj2cbkl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moto_app",
+            "certificate_hash": "209834108b83db17f270d06aadc0ffa5c4916357"
+          }
+        },
+        {
+          "client_id": "942405378178-cbm7tci49r7pf512t7elh4btunu1v7lo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcdDvDGS70XuWSJir6naIcU9bcBbOtnAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "942405378178-cbm7tci49r7pf512t7elh4btunu1v7lo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
