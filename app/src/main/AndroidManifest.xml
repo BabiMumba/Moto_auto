@@ -21,6 +21,9 @@
         android:theme="@style/Theme.Moto_app"
         tools:targetApi="31">
         <activity
+            android:name=".FloatingActivity"
+            android:exported="false" />
+        <activity
             android:name=".DownloadActivity"
             android:exported="false" />
         <activity
@@ -38,7 +41,6 @@
         <activity
             android:name=".DownloadActivity_kotline"
             android:exported="false" />
-
         <activity
             android:name=".LoginActivity"
             android:exported="true">
