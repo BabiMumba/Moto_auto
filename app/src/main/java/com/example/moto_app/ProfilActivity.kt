@@ -22,6 +22,9 @@ class ProfilActivity : AppCompatActivity() {
         binding.pub.setOnClickListener {
             startActivity(Intent(this,PermissionActivity::class.java))
         }
+        binding.flot.setOnClickListener {
+            startActivity(Intent(this,FloatingActivity::class.java))
+        }
         binding.down.setOnClickListener {
             startActivity(Intent(this,DownloadActivity_kotline::class.java))
         }
