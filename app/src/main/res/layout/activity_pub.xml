@@ -8,12 +8,13 @@
     tools:context=".PubActivity">
 
     <!--on below line we are creating a simple text view-->
-    <TextView
+    <Button
+        android:id="@+id/vide"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="Admob Banner Ads Example"
+        android:text="video"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp" />
