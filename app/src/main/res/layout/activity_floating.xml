@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_blue_grey_100"
+    android:background="@color/white"
     tools:context=".FloatingActivity">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -28,8 +28,8 @@
             app:fabAlignmentMode="center"
             app:fabAnimationMode="slide"
             app:fabCradleMargin="5dp"
-            app:menu="@menu/menu_ba1"
-            app:navigationIcon="@drawable/ic_menu" />
+            app:menu="@menu/menu"
+            app:navigationIcon="@drawable/ic_baseline_more_vert_24" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
