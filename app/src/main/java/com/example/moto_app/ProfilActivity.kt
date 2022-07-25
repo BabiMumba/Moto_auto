@@ -23,7 +23,7 @@ class ProfilActivity : AppCompatActivity() {
             startActivity(Intent(this,PermissionActivity::class.java))
         }
         binding.down.setOnClickListener {
-            startActivity(Intent(this,DownloadActivity::class.java))
+            startActivity(Intent(this,DownloadActivity_kotline::class.java))
         }
 
         binding.logout.setOnClickListener {

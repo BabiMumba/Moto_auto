@@ -18,6 +18,7 @@ import android.widget.Toast
 class DownloadActivity_kotline : AppCompatActivity() {
 
     var url = "https://drive.google.com/file/d/0B_rn9jkskDivX1dfZ3B3M2JVX2M/view?usp=drive_web"
+
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
