@@ -22,6 +22,10 @@ class ProfilActivity : AppCompatActivity() {
         binding.pub.setOnClickListener {
             startActivity(Intent(this,PermissionActivity::class.java))
         }
+        binding.down.setOnClickListener {
+            startActivity(Intent(this,DownloadActivity::class.java))
+        }
+
         binding.logout.setOnClickListener {
             firebaseAuth.signOut()
             checkUser()
