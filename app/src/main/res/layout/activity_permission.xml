@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".PermissionActivity">
+<LinearLayout  xmlns:android= "http://schemas.android.com/apk/res/android"
+    xmlns:app= "http://schemas .android.com/apk/res-auto"
+    xmlns:tools= "http://schemas.android.com/tools"
+    android:layout_width= "match_parent"
+    android:layout_height= "match_parent"
+    android:orientation= "vertical"
+    android:gravity="center">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--EditText : Entrez le nom du dossier-->
+    <EditText
+        android:id= "@+id/folderNameEt"
+        android:layout_width= "match_parent"
+        android:layout_margin="20dp"
+        android:layout_height= "wrap_content"
+        android:hint= "Nom du dossier..." />
+
+    <!--Button : Créer un dossier-->
+    <com.google.android.material.button.MaterialButton
+        android:id= "@+id/createFolderBtn"
+        android:layout_width= "match_parent"
+        android:layout_height= "wrap_content"
+        android:layout_marginTop= "10dp"
+        android:text= "Créer un dossier"
+        android:layout_margin="20dp"
+        />
+</LinearLayout>
