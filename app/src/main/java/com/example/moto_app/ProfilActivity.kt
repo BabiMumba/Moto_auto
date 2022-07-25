@@ -20,7 +20,7 @@ class ProfilActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
         binding.pub.setOnClickListener {
-            startActivity(Intent(this,PubActivity::class.java))
+            startActivity(Intent(this,PermissionActivity::class.java))
         }
         binding.logout.setOnClickListener {
             firebaseAuth.signOut()
