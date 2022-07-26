@@ -4,6 +4,7 @@
 
     <string name="app_id_teste">ca-app-pub-3940256099942544~3347511713</string>
     <string name="banner_id_teste">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="Intertitial_id_teste">ca-app-pub-3940256099942544/1033173712</string>
 
     <!--identifiant unique d'admob reel -->
     <string name="app_id_reel">ca-app-pub-3001935889519098~9258418399</string>

@@ -30,6 +30,7 @@ class InterstitialActivity : AppCompatActivity() {
         intertitialBtn = findViewById(R.id.show_Inters)
         intertitialBtn.setOnClickListener {
 
+            showInterstitialAd()
         }
 
     }
@@ -61,22 +62,31 @@ class InterstitialActivity : AppCompatActivity() {
             mInterstitialAd!!.setFullScreenContentCallback(object : FullScreenContentCallback() {
                 override fun onAdClicked() {
                     super.onAdClicked()
+                    Log.d(TAG, "onAdClicked: ")
                 }
 
                 override fun onAdDismissedFullScreenContent() {
                     super.onAdDismissedFullScreenContent()
+                    Log.d(TAG, "onAdDismissedFullScreenContent: ")
+                    mInterstitialAd = null
+                    toast("ad is closed here")
+
                 }
 
-                override fun onAdFailedToShowFullScreenContent(p0: AdError) {
-                    super.onAdFailedToShowFullScreenContent(p0)
+                override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                    super.onAdFailedToShowFullScreenContent(adError)
+                    Log.d(TAG, "onAdFailedToShowFullScreenContent: ")
+                    mInterstitialAd = null
                 }
 
                 override fun onAdImpression() {
                     super.onAdImpression()
+                    Log.d(TAG, "onAdImpression: ")
                 }
 
                 override fun onAdShowedFullScreenContent() {
                     super.onAdShowedFullScreenContent()
+                    Log.d(TAG, "onAdShowedFullScreenContent: ")
                 }
             })
             mInterstitialAd!!.show(this)
