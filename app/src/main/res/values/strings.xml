@@ -8,4 +8,5 @@
     <!--identifiant unique d'admob reel -->
     <string name="app_id_reel">ca-app-pub-3001935889519098~9258418399</string>
     <string name="banner_ad_reel">ca-app-pub-3001935889519098/5423949312</string>
+
 </resources>

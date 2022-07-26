@@ -20,7 +20,7 @@ class ProfilActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
         binding.pub.setOnClickListener {
-            startActivity(Intent(this,PermissionActivity::class.java))
+            startActivity(Intent(this,Admob::class.java))
         }
         binding.flot.setOnClickListener {
             startActivity(Intent(this,MoreActivity::class.java))
