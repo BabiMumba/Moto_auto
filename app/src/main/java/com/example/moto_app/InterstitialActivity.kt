@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
 import com.google.android.gms.ads.interstitial.InterstitialAd
@@ -15,6 +16,8 @@ class InterstitialActivity : AppCompatActivity() {
     companion object{
         private const val TAG = "INTERSTITIAL_TAG"
     }
+    private  var mInterstitialAd: InterstitialAd? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interstitial)
@@ -36,7 +39,19 @@ class InterstitialActivity : AppCompatActivity() {
         val adRequest = AdRequest.Builder().build()
         InterstitialAd.load(this,"",adRequest,
             object :InterstitialAdLoadCallback(){
+                override fun equals(other: Any?): Boolean {
+                    return super.equals(other)
+                }
 
+                override fun onAdFailedToLoad(p0: LoadAdError) {
+                    super.onAdFailedToLoad(p0)
+                }
+
+                override fun onAdLoaded(p0: InterstitialAd) {
+                    super.onAdLoaded(p0)
+                    Log.d(TAG, "onAdLoaded: ")
+                    mInterstitialAd = p0
+                }
             }
         )
     }
