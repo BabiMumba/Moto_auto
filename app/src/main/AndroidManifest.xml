@@ -24,7 +24,7 @@
             android:name=".MoreActivity"
             android:exported="false" />
         <activity
-            android:name=".FloatingActivity"
+            android:name=".Admob"
             android:exported="false" />
         <activity
             android:name=".DownloadActivity"

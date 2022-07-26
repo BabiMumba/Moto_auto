@@ -17,12 +17,13 @@ import android.widget.Toast
 
 class DownloadActivity_kotline : AppCompatActivity() {
 
-    var url = "https://drive.google.com/file/d/0B_rn9jkskDivX1dfZ3B3M2JVX2M/view?usp=drive_web"
+    var urls = "https://drive.google.com/file/d/0B_rn9jkskDivX1dfZ3B3M2JVX2M/view?usp=drive_web"
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_download)
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 == PackageManager.PERMISSION_DENIED
@@ -38,11 +39,13 @@ class DownloadActivity_kotline : AppCompatActivity() {
         webView.settings.loadsImagesAutomatically = true
         webView.settings.javaScriptEnabled = true
         webView.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
-        webView.loadUrl(url)
+        webView.loadUrl(urls)
+
         webView.setDownloadListener(DownloadListener { url, userAgent, contentDisposition, mimeType, contentLength ->
             val request = DownloadManager.Request(
                 Uri.parse(url)
             )
+
             request.setMimeType(mimeType)
             val cookies = CookieManager.getInstance().getCookie(url)
             request.addRequestHeader("cookie", cookies)
@@ -59,6 +62,7 @@ class DownloadActivity_kotline : AppCompatActivity() {
             val dm = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
             dm.enqueue(request)
             Toast.makeText(applicationContext, "Downloading File", Toast.LENGTH_LONG).show()
+
         })
     }
 }

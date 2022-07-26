@@ -14,6 +14,7 @@ class MoreActivity : AppCompatActivity() {
     private lateinit var lytMic: View
     private lateinit var lytCall: View
     private var rotate = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_more)
@@ -30,26 +31,21 @@ class MoreActivity : AppCompatActivity() {
         initShowOut(lytCall)
 
         backDrop.visibility = View.GONE
-
         backDrop.visibility = View.GONE
 
         fabAdd.setOnClickListener { v: View ->
             toggleFabMode(v)
         }
-
         backDrop.setOnClickListener {
             toggleFabMode(fabAdd)
         }
-
         fabMic.setOnClickListener {
             Toast.makeText(this, "Voice clicked", Toast.LENGTH_SHORT).show()
         }
-
         fabCall.setOnClickListener {
             Toast.makeText(this, "Call clicked", Toast.LENGTH_SHORT).show()
         }
     }
-
     private fun toggleFabMode(v: View) {
         rotate = rotateFab(v, !rotate)
         if (rotate) {
