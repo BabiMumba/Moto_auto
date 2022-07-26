@@ -26,7 +26,7 @@ class ProfilActivity : AppCompatActivity() {
             startActivity(Intent(this,MoreActivity::class.java))
         }
         binding.down.setOnClickListener {
-            startActivity(Intent(this,DownloadActivity_kotline::class.java))
+            startActivity(Intent(this,InterstitialActivity::class.java))
         }
 
         binding.logout.setOnClickListener {
