@@ -36,7 +36,7 @@ class InterstitialActivity : AppCompatActivity() {
     }
     private fun loadInterstitialAd(){
         val adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(this,"",adRequest,
+        InterstitialAd.load(this,resources.getString(R.string.Intertitial_id_teste),adRequest,
             object :InterstitialAdLoadCallback(){
                 override fun equals(other: Any?): Boolean {
                     return super.equals(other)
