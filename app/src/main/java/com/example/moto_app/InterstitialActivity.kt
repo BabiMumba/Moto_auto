@@ -10,10 +10,12 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.material.button.MaterialButton
 
 class InterstitialActivity : AppCompatActivity() {
+
     private lateinit var intertitialBtn :MaterialButton
     companion object{
         private const val TAG = "INTERSTITIAL_TAG"
     }
+
     private  var mInterstitialAd: InterstitialAd? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +29,7 @@ class InterstitialActivity : AppCompatActivity() {
             RequestConfiguration.Builder().setTestDeviceIds(listOf("TESTE_ID_1","TESTE_ID_N"))
                 .build()
         )
+        loadInterstitialAd()
         intertitialBtn = findViewById(R.id.show_Inters)
         intertitialBtn.setOnClickListener {
 
@@ -47,7 +50,6 @@ class InterstitialActivity : AppCompatActivity() {
                     Log.d(TAG, "onAdFailedToLoad: ")
                     mInterstitialAd = null
                 }
-
                 override fun onAdLoaded(p0: InterstitialAd) {
                     super.onAdLoaded(p0)
                     Log.d(TAG, "onAdLoaded: ")
