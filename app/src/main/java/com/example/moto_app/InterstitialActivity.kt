@@ -39,12 +39,11 @@ class InterstitialActivity : AppCompatActivity() {
     }
     private fun loadInterstitialAd(){
         val adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(this,resources.getString(R.string.Intertitial_ad_reel),adRequest,
+        InterstitialAd.load(this,resources.getString(R.string.Intertitial_id_teste),adRequest,
             object :InterstitialAdLoadCallback(){
                 override fun equals(other: Any?): Boolean {
                     return super.equals(other)
                 }
-
                 override fun onAdFailedToLoad(p0: LoadAdError) {
                     super.onAdFailedToLoad(p0)
                     Log.d(TAG, "onAdFailedToLoad: ")
