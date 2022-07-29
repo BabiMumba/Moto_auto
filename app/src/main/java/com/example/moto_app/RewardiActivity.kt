@@ -20,11 +20,14 @@ class RewardiActivity : AppCompatActivity() {
     }
     private lateinit var showbtn : Button
     private lateinit var loadAndShow : Button
+
     private var mRewardedInterstitialAd : RewardedInterstitialAd? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rewardi)
+        showbtn = findViewById(R.id.showAdbtn)
+        loadAndShow = findViewById(R.id.LoadAdbtn)
 
         MobileAds.initialize(this){
             Log.d(TAG,"Oncreate:")
@@ -37,13 +40,13 @@ class RewardiActivity : AppCompatActivity() {
         )
         loadrewardedInters()
 
-        LoadAdbtn.setOnClickListener{
+        loadAndShow.setOnClickListener{
             loadAndShowRewarded()
 
 
         }
 
-        showAdbtn.setOnClickListener {
+        showbtn.setOnClickListener {
             showRewardedInters()
 
         }
@@ -55,7 +58,7 @@ class RewardiActivity : AppCompatActivity() {
 
         RewardedInterstitialAd.load(
             this,
-            "",
+            resources.getString(R.string.Rewarded_id_teste),
             AdRequest.Builder().build(),
             object : RewardedInterstitialAdLoadCallback(){
                 override fun onAdFailedToLoad(loadAdError: LoadAdError) {
@@ -132,7 +135,7 @@ class RewardiActivity : AppCompatActivity() {
 
         RewardedInterstitialAd.load(
             this,
-            "",
+            resources.getString(R.string.Rewarded_id_teste),
             AdRequest.Builder().build(),
             object : RewardedInterstitialAdLoadCallback(){
                 override fun onAdFailedToLoad(loadAdError: LoadAdError) {
