@@ -1,5 +1,6 @@
 package com.example.moto_app
 
+import android.app.ProgressDialog
 import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -114,9 +115,43 @@ class RewardiActivity : AppCompatActivity() {
                 Log.d(TAG,"onUserEarnedrewarded: ")
             }
 
-        }else{
+        }
+        else{
             Log.d(TAG,"chargement echouer")
             Toast.makeText(this, "chergement echouer", Toast.LENGTH_SHORT).show()
         }
+    }
+    private fun loadAndShowRewarded(){
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("please")
+        progressDialog.setMessage("loading Rewarded Inters...")
+        progressDialog.show()
+
+        RewardedInterstitialAd.load(
+            this,
+            "",
+            AdRequest.Builder().build(),
+            object : RewardedInterstitialAdLoadCallback(){
+                override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                    super.onAdFailedToLoad(loadAdError)
+                    Log.d(TAG,"chargement echouer:${loadAdError.message}")
+                    mRewardedInterstitialAd = null
+                    progressDialog.dismiss()
+                    Toast.makeText(this@RewardiActivity, "ad was not loaded", Toast.LENGTH_SHORT).show()
+
+                }
+
+                override fun onAdLoaded(rewardedInterstitialAd: RewardedInterstitialAd) {
+                    super.onAdLoaded(rewardedInterstitialAd)
+
+                    Log.d(TAG,"OnLoaded")
+                    mRewardedInterstitialAd = rewardedInterstitialAd
+                    progressDialog.dismiss()
+                    showRewardedInters()
+                }
+            }
+
+        )
+
     }
 }
