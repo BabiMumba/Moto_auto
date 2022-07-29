@@ -23,7 +23,7 @@ class ProfilActivity : AppCompatActivity() {
             startActivity(Intent(this,Admob::class.java))
         }
         binding.flot.setOnClickListener {
-            startActivity(Intent(this,MoreActivity::class.java))
+            startActivity(Intent(this,RewardiActivity::class.java))
         }
         binding.down.setOnClickListener {
             startActivity(Intent(this,InterstitialActivity::class.java))
