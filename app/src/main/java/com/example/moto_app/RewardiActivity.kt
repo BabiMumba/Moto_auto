@@ -38,10 +38,13 @@ class RewardiActivity : AppCompatActivity() {
         loadrewardedInters()
 
         LoadAdbtn.setOnClickListener{
+            loadAndShowRewarded()
+
 
         }
 
         showAdbtn.setOnClickListener {
+            showRewardedInters()
 
         }
 
