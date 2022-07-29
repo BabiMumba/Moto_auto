@@ -12,7 +12,6 @@ import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback
 import kotlinx.android.synthetic.main.activity_rewardi.*
-import kotlin.math.log
 
 class RewardiActivity : AppCompatActivity() {
     private companion object{
@@ -58,7 +57,7 @@ class RewardiActivity : AppCompatActivity() {
 
         RewardedInterstitialAd.load(
             this,
-            resources.getString(R.string.Rewarded_id_teste),
+            resources.getString(R.string.rewarded_ad_reel),
             AdRequest.Builder().build(),
             object : RewardedInterstitialAdLoadCallback(){
                 override fun onAdFailedToLoad(loadAdError: LoadAdError) {
@@ -135,7 +134,7 @@ class RewardiActivity : AppCompatActivity() {
 
         RewardedInterstitialAd.load(
             this,
-            resources.getString(R.string.Rewarded_id_teste),
+            resources.getString(R.string.rewarded_ad_reel),
             AdRequest.Builder().build(),
             object : RewardedInterstitialAdLoadCallback(){
                 override fun onAdFailedToLoad(loadAdError: LoadAdError) {

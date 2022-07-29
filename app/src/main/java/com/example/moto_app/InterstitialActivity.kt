@@ -39,7 +39,7 @@ class InterstitialActivity : AppCompatActivity() {
     }
     private fun loadInterstitialAd(){
         val adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(this,resources.getString(R.string.Intertitial_id_teste),adRequest,
+        InterstitialAd.load(this,resources.getString(R.string.Intertitial_ad_reel),adRequest,
             object :InterstitialAdLoadCallback(){
                 override fun equals(other: Any?): Boolean {
                     return super.equals(other)
@@ -60,7 +60,7 @@ class InterstitialActivity : AppCompatActivity() {
     private fun showInterstitialAd(){
         if (mInterstitialAd != null){
             Log.d(TAG,"showInterstitial: Ad was loaded, we can show")
-            mInterstitialAd!!.setFullScreenContentCallback(object : FullScreenContentCallback() {
+            mInterstitialAd!!.fullScreenContentCallback = object : FullScreenContentCallback() {
                 override fun onAdClicked() {
                     super.onAdClicked()
                     Log.d(TAG, "onAdClicked: ")
@@ -89,7 +89,7 @@ class InterstitialActivity : AppCompatActivity() {
                     super.onAdShowedFullScreenContent()
                     Log.d(TAG, "onAdShowedFullScreenContent: ")
                 }
-            })
+            }
             mInterstitialAd!!.show(this)
         }else{
             Log.d(TAG,"showInterstitial: Ad was not loaded cant show")
