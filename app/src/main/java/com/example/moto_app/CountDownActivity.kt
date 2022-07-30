@@ -1,5 +1,7 @@
 package com.example.moto_app
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import android.os.CountDownTimer
@@ -9,14 +11,18 @@ import android.widget.Button
 import android.widget.Toast
 import com.example.moto_app.R
 import com.example.moto_app.CountDownActivity.CountDownTimerClass
+import kotlinx.android.synthetic.main.activity_count_down.*
 
 class CountDownActivity : AppCompatActivity() {
     var button: Button? = null
     var textview: TextView? = null
     var timer: CountDownTimer? = null
+    lateinit var shared: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_count_down)
+
+        shared = getSharedPreferences("test", Context.MODE_PRIVATE)
 
         button = findViewById<View>(R.id.button1) as Button
         textview = findViewById<View>(R.id.textView1) as TextView
@@ -33,7 +39,16 @@ class CountDownActivity : AppCompatActivity() {
         }
 
         override fun onFinish() {
+            var point = 1
+            var bonus = point+1
             textview!!.text = " Count Down Finish "
+            val edit = shared.edit()
+            edit.putString("txt", "point : $bonus.toString()")
+
+            Toast.makeText(this@CountDownActivity, "was saved", Toast.LENGTH_SHORT).show()
+            edit.apply()
+            txt_point.text = shared.getString("txt","no imported")
+
         }
     }
 
