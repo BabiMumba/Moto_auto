@@ -70,6 +70,7 @@ class RewardiActivity : AppCompatActivity() {
                     super.onAdLoaded(rewardedInterstitialAd)
 
                     Log.d(TAG,"OnLoaded")
+                    Toast.makeText(this@RewardiActivity, "video pret", Toast.LENGTH_SHORT).show()
                     mRewardedInterstitialAd = rewardedInterstitialAd
                 }
             }
