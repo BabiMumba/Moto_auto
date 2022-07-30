@@ -27,7 +27,7 @@
             android:name=".InterstitialActivity"
             android:exported="false" />
         <activity
-            android:name=".MoreActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".Admob"
@@ -51,7 +51,7 @@
             android:name=".DownloadActivity_kotline"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".MoreActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
