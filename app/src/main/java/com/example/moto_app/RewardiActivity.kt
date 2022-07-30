@@ -86,6 +86,7 @@ class RewardiActivity : AppCompatActivity() {
                         super.onAdClicked()
 
                         Log.d(TAG,"onAdclicked")
+                        Toast.makeText(this@RewardiActivity, "vous avez cliquez sur la pub", Toast.LENGTH_SHORT).show()
 
                     }
 
@@ -118,6 +119,7 @@ class RewardiActivity : AppCompatActivity() {
             mRewardedInterstitialAd!!.show(this){
                 Toast.makeText(this, "Rewarded earned... !", Toast.LENGTH_SHORT).show()
                 Log.d(TAG,"onUserEarnedrewarded: ")
+
             }
 
         }
@@ -128,8 +130,8 @@ class RewardiActivity : AppCompatActivity() {
     }
     private fun loadAndShowRewarded(){
         val progressDialog = ProgressDialog(this)
-        progressDialog.setTitle("please")
-        progressDialog.setMessage("loading Rewarded Inters...")
+        progressDialog.setTitle("Patienter...")
+        progressDialog.setMessage("chargement de la video...")
         progressDialog.show()
 
         RewardedInterstitialAd.load(
@@ -148,8 +150,8 @@ class RewardiActivity : AppCompatActivity() {
 
                 override fun onAdLoaded(rewardedInterstitialAd: RewardedInterstitialAd) {
                     super.onAdLoaded(rewardedInterstitialAd)
-
                     Log.d(TAG,"OnLoaded")
+                    Toast.makeText(this@RewardiActivity, "Video pret", Toast.LENGTH_SHORT).show()
                     mRewardedInterstitialAd = rewardedInterstitialAd
                     progressDialog.dismiss()
                     showRewardedInters()
