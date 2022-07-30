@@ -19,14 +19,15 @@
         android:id="@+id/myname"
         />
     <Button
+        android:textAllCaps="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
         android:text="Se Deconnecter"
         android:id="@+id/logout"
         />
     <Button
         android:id="@+id/pub"
+        android:textAllCaps="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="pub"
@@ -36,12 +37,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Intersetial"
+        android:textAllCaps="false"
         />
     <Button
         android:id="@+id/flot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rewardi"
+        android:textAllCaps="false"
+        />
+    <Button
+        android:id="@+id/count_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Compte a Rebours"
         />
 
     </LinearLayout>

@@ -19,6 +19,9 @@ class ProfilActivity : AppCompatActivity() {
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
+        binding.countDown.setOnClickListener {
+            startActivity(Intent(this,CountDownActivity::class.java))
+        }
         binding.pub.setOnClickListener {
             startActivity(Intent(this,Admob::class.java))
         }
