@@ -3,6 +3,7 @@ package com.example.moto_app
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
@@ -11,7 +12,7 @@ import com.google.android.material.button.MaterialButton
 
 class InterstitialActivity : AppCompatActivity() {
 
-    private lateinit var intertitialBtn :MaterialButton
+    private lateinit var intertitialBtn :Button
     companion object{
         private const val TAG = "INTERSTITIAL_TAG"
     }
@@ -21,6 +22,7 @@ class InterstitialActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interstitial)
+
         title = "Interstitial"
         MobileAds.initialize(this){
             Log.d(TAG,"oncreate : status $it")

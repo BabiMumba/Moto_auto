@@ -42,7 +42,7 @@
             android:name=".PubActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfilActivity"
+            android:name=".MoreActivity"
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
@@ -51,7 +51,7 @@
             android:name=".DownloadActivity_kotline"
             android:exported="false" />
         <activity
-            android:name=".MoreActivity"
+            android:name=".ProfilActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,7 +62,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/app_id_reel2" />
+            android:value="@string/app_id_teste" />
     </application>
 
 </manifest>
