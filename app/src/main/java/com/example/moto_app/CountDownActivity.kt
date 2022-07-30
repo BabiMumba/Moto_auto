@@ -26,7 +26,7 @@ class CountDownActivity : AppCompatActivity() {
 
         button = findViewById<View>(R.id.button1) as Button
         textview = findViewById<View>(R.id.textView1) as TextView
-        timer = CountDownTimerClass(20000, 1000)
+        timer = CountDownTimerClass(10000, 1000)
         (timer as CountDownTimerClass).start()
         button!!.setOnClickListener { }
     }
@@ -39,11 +39,12 @@ class CountDownActivity : AppCompatActivity() {
         }
 
         override fun onFinish() {
-            var point = 1
+            var point = 0
             var bonus = point+1
+
             textview!!.text = " Count Down Finish "
             val edit = shared.edit()
-            edit.putString("txt", "point : $bonus.toString()")
+            edit.putString("txt", "point : $bonus")
 
             Toast.makeText(this@CountDownActivity, "was saved", Toast.LENGTH_SHORT).show()
             edit.apply()
