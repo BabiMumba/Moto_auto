@@ -21,6 +21,9 @@
         android:theme="@style/Theme.Moto_app"
         tools:targetApi="31">
         <activity
+            android:name=".CheckStatusActivity"
+            android:exported="false" />
+        <activity
             android:name=".CountDownActivity"
             android:exported="false" />
         <activity

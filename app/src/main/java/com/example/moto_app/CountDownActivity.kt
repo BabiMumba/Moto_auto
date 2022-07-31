@@ -26,9 +26,13 @@ class CountDownActivity : AppCompatActivity() {
 
         button = findViewById<View>(R.id.button1) as Button
         textview = findViewById<View>(R.id.textView1) as TextView
-        timer = CountDownTimerClass(10000, 1000)
-        (timer as CountDownTimerClass).start()
-        button!!.setOnClickListener { }
+
+        txt_point.text = shared.getString("txt","no imported")
+
+        button!!.setOnClickListener {
+            timer = CountDownTimerClass(10000, 1000)
+            (timer as CountDownTimerClass).start()
+        }
     }
 
     inner class CountDownTimerClass(millisInFuture: Long, countDownInterval: Long) :
@@ -37,19 +41,13 @@ class CountDownActivity : AppCompatActivity() {
             val progress = (millisUntilFinished / 1000).toInt()
             textview!!.text = Integer.toString(progress)
         }
-
         override fun onFinish() {
             var point = 0
             var bonus = point+1
-
-            textview!!.text = " Count Down Finish "
             val edit = shared.edit()
-            edit.putString("txt", "point : $bonus")
-
+            edit.putString("txt", "$bonus")
             Toast.makeText(this@CountDownActivity, "was saved", Toast.LENGTH_SHORT).show()
             edit.apply()
-            txt_point.text = shared.getString("txt","no imported")
-
         }
     }
 

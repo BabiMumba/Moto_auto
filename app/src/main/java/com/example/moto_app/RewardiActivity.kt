@@ -118,11 +118,9 @@ class RewardiActivity : AppCompatActivity() {
                     }
                 }
             mRewardedInterstitialAd!!.show(this){
-                Toast.makeText(this, "Rewarded earned... !", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "recompence accorder", Toast.LENGTH_SHORT).show()
                 Log.d(TAG,"onUserEarnedrewarded: ")
-
             }
-
         }
         else{
             Log.d(TAG,"chargement echouer")
