@@ -46,16 +46,12 @@ class CheckStatusActivity : AppCompatActivity() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.connexionfailed)
         dialog.setCancelable(false)
-        val lp = WindowManager.LayoutParams()
-        lp.copyFrom(dialog.window!!.attributes)
-        lp.width = WindowManager.LayoutParams.WRAP_CONTENT
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+
         dialog.findViewById<View>(R.id.verifier).setOnClickListener {
             checkConnection()
             dialog.dismiss()
         }
         dialog.show()
-        dialog.window!!.attributes = lp
     }
 
     protected val isOnline: Boolean
