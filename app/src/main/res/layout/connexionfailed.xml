@@ -2,11 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    app:cardBackgroundColor="@color/purple_700"
     android:orientation="vertical"
     android:gravity="center"
     android:layout_height="match_parent">
     <androidx.cardview.widget.CardView
         android:layout_gravity="center"
+        app:cardBackgroundColor="@color/purple_700"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="20dp"
@@ -24,18 +26,8 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_height="wrap_content"
-                android:text="OOps Desole"
-                />
-
-            <TextView
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:textStyle="normal"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Verifier votre Connexion \n puis Reesayer"
+                android:text="OOps Desoler"
+                android:layout_marginBottom="10dp"
                 />
 
             <ImageView
@@ -44,13 +36,31 @@
                 android:layout_height="90dp"
                 android:src="@drawable/wireless"
                 />
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:text="Vous n'etes pas connecter"
+                />
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:text="Verifier votre Connexion"
+                />
             <Button
                 android:layout_gravity="center"
                 android:textAllCaps="false"
                 android:id="@+id/verifier"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="verifier"
+                android:text="Reesayer"
                 />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
