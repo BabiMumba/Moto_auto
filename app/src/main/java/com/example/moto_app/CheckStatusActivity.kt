@@ -40,7 +40,7 @@ class CheckStatusActivity : AppCompatActivity() {
             mAlertDialog.dismiss()
         }
     }
-    private fun showDialoe(){
+    private fun showDialog(){
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.connexionfailed)
@@ -50,7 +50,8 @@ class CheckStatusActivity : AppCompatActivity() {
         lp.width = WindowManager.LayoutParams.WRAP_CONTENT
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT
         dialog.findViewById<View>(R.id.verifier).setOnClickListener {
-
+            checkConnection()
+            dialog.dismiss()
         }
         dialog.show()
         dialog.window!!.attributes = lp
@@ -71,7 +72,7 @@ class CheckStatusActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         } else {
-            alert()
+            showDialog()
             Toast.makeText(
                 this@CheckStatusActivity,
                 "Vous n'estes pas connecter a internet",
