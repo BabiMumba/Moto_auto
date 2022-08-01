@@ -1,6 +1,7 @@
 package com.example.moto_app
 
 import android.app.AlertDialog
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.moto_app.R
@@ -8,6 +9,8 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.view.LayoutInflater
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.view.marginBottom
@@ -36,6 +39,13 @@ class CheckStatusActivity : AppCompatActivity() {
             checkConnection()
             mAlertDialog.dismiss()
         }
+    }
+    private fun showDialoe(){
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.connexionfailed)
+        dialog.setCancelable(false)
+        val lp = WindowManager.LayoutParams()
     }
 
     protected val isOnline: Boolean
