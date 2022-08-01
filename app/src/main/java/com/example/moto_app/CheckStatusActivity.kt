@@ -1,5 +1,6 @@
 package com.example.moto_app
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
@@ -22,12 +23,12 @@ class CheckStatusActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check_status)
 
-        checkConnection()
+
 
 
         checkIntrnetButton = findViewById<View>(R.id.checkInternet) as Button
         checkIntrnetButton!!.setOnClickListener {
-
+            checkConnection()
         }
     }
     private fun alert(){
@@ -46,7 +47,6 @@ class CheckStatusActivity : AppCompatActivity() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.connexionfailed)
         dialog.setCancelable(false)
-
         dialog.findViewById<View>(R.id.verifier).setOnClickListener {
             checkConnection()
             dialog.dismiss()
@@ -61,15 +61,17 @@ class CheckStatusActivity : AppCompatActivity() {
             return netInfo != null && netInfo.isConnectedOrConnecting
         }
 
+    @SuppressLint("ResourceType")
     private fun checkConnection() {
         if (isOnline) {
+            //setContentView(R.id.activity)
             Toast.makeText(
                 this@CheckStatusActivity,
                 "Vous etes connecter a  Internet",
                 Toast.LENGTH_SHORT
             ).show()
         } else {
-            showDialog()
+            setContentView(R.id.failed)
             Toast.makeText(
                 this@CheckStatusActivity,
                 "Vous n'estes pas connecter a internet",
