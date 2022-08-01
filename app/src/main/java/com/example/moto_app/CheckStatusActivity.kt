@@ -42,7 +42,7 @@ class CheckStatusActivity : AppCompatActivity() {
         }
     }
     private fun showDialog(){
-        val dialog = Dialog(this)
+        val dialog = Dialog(this,android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.connexionfailed)
         dialog.setCancelable(false)
