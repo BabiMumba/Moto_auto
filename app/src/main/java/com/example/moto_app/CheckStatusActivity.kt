@@ -22,11 +22,12 @@ class CheckStatusActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check_status)
 
+        checkConnection()
 
 
         checkIntrnetButton = findViewById<View>(R.id.checkInternet) as Button
         checkIntrnetButton!!.setOnClickListener {
-            checkConnection()
+
         }
     }
     private fun alert(){
