@@ -15,6 +15,7 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.view.marginBottom
+import kotlinx.android.synthetic.main.activity_check_status.*
 import kotlinx.android.synthetic.main.connexionfailed.view.*
 
 class CheckStatusActivity : AppCompatActivity() {
@@ -22,9 +23,6 @@ class CheckStatusActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check_status)
-
-
-
 
         checkIntrnetButton = findViewById<View>(R.id.checkInternet) as Button
         checkIntrnetButton!!.setOnClickListener {
@@ -65,13 +63,16 @@ class CheckStatusActivity : AppCompatActivity() {
     private fun checkConnection() {
         if (isOnline) {
             //setContentView(R.id.activity)
+            failed_n.visibility = View.GONE
+            checkInternet.visibility = View.VISIBLE
             Toast.makeText(
                 this@CheckStatusActivity,
                 "Vous etes connecter a  Internet",
                 Toast.LENGTH_SHORT
             ).show()
         } else {
-            setContentView(R.id.failed)
+            checkInternet.visibility = View.GONE
+            failed_n.visibility = View.VISIBLE
             Toast.makeText(
                 this@CheckStatusActivity,
                 "Vous n'estes pas connecter a internet",
