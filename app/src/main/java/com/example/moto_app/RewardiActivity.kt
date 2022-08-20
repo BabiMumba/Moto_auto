@@ -92,6 +92,7 @@ class RewardiActivity : AppCompatActivity() {
 
                     override fun onAdDismissedFullScreenContent() {
                         super.onAdDismissedFullScreenContent()
+                        Toast.makeText(this@RewardiActivity, "Vous avez fermer ", Toast.LENGTH_SHORT).show()
 
                         Log.d(TAG,"onAddismissFullScreen: ")
 
