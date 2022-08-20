@@ -21,6 +21,7 @@ class InterstitialActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interstitial)
+
         title = "Interstitial"
         MobileAds.initialize(this){
             Log.d(TAG,"oncreate : status $it")

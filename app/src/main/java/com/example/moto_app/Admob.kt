@@ -14,11 +14,14 @@ class Admob : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admob)
-
         MobileAds.initialize(this){
             Log.d(TAG,"inias complet")
         }
-
+        MobileAds.setRequestConfiguration(
+            RequestConfiguration.Builder()
+                .setTestDeviceIds(listOf("e3ecfe91-a277-4650-92e0-4f0cf2ad9c13",""))
+                .build()
+        )
         adview = findViewById(R.id.bannerAd)
         val adRequest = AdRequest.Builder().build()
         //load ad
@@ -30,7 +33,6 @@ class Admob : AppCompatActivity() {
                 super.onAdClicked()
                 Log.d(TAG, "onAdClicked: ")
             }
-
             override fun onAdClosed() {
                 super.onAdClosed()
                 Log.d(TAG, "onAdClosed: ")
