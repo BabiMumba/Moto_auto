@@ -26,6 +26,12 @@ class InterstitialActivity : AppCompatActivity() {
         MobileAds.initialize(this){
             Log.d(TAG,"oncreate : status $it")
         }
+
+        MobileAds.setRequestConfiguration(
+            RequestConfiguration.Builder()
+                .setTestDeviceIds(listOf("e3ecfe91-a277-4650-92e0-4f0cf2ad9c13",""))
+                .build()
+        )
         loadInterstitialAd()
         intertitialBtn = findViewById(R.id.show_Inters)
         intertitialBtn.setOnClickListener {
