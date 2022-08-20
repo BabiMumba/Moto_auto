@@ -32,6 +32,11 @@ class RewardiActivity : AppCompatActivity() {
             Log.d(TAG,"Oncreate:")
 
         }
+        MobileAds.setRequestConfiguration(
+            RequestConfiguration.Builder()
+                .setTestDeviceIds(listOf("e3ecfe91-a277-4650-92e0-4f0cf2ad9c13",""))
+                .build()
+        )
 
         loadrewardedInters()
 
