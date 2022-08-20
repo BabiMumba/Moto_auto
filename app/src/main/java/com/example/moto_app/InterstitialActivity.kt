@@ -18,19 +18,13 @@ class InterstitialActivity : AppCompatActivity() {
     }
 
     private  var mInterstitialAd: InterstitialAd? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interstitial)
-
         title = "Interstitial"
         MobileAds.initialize(this){
             Log.d(TAG,"oncreate : status $it")
         }
-        MobileAds.setRequestConfiguration(
-            RequestConfiguration.Builder().setTestDeviceIds(listOf("TESTE_ID_1","TESTE_ID_N"))
-                .build()
-        )
         loadInterstitialAd()
         intertitialBtn = findViewById(R.id.show_Inters)
         intertitialBtn.setOnClickListener {

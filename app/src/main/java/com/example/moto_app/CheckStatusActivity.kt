@@ -23,12 +23,15 @@ class CheckStatusActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check_status)
+        checkConnection()
 
         checkIntrnetButton = findViewById<View>(R.id.checkInternet) as Button
-        checkIntrnetButton!!.setOnClickListener {
+        verifier.setOnClickListener {
             checkConnection()
         }
     }
+
+    /*
     private fun alert(){
         val mDialogView = LayoutInflater.from(this).inflate(R.layout.connexionfailed, null)
         val mBuilder = AlertDialog.Builder(this)
@@ -51,6 +54,8 @@ class CheckStatusActivity : AppCompatActivity() {
         }
         dialog.show()
     }
+     */
+
 
     protected val isOnline: Boolean
         protected get() {
@@ -59,7 +64,6 @@ class CheckStatusActivity : AppCompatActivity() {
             return netInfo != null && netInfo.isConnectedOrConnecting
         }
 
-    @SuppressLint("ResourceType")
     private fun checkConnection() {
         if (isOnline) {
             //setContentView(R.id.activity)

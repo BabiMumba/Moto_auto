@@ -24,25 +24,20 @@ class PubActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pub)
 
         MobileAds.initialize(this)
-
         // on below line we are initializing
         // our ad view with its id
         adView = findViewById(R.id.adView)
-
         // on below line we are
         // initializing our ad request.
         adRequest = AdRequest.Builder().build()
-
         // on below line we are loading our
         // ad view with the ad request
         adView.loadAd(adRequest)
-
 
         //intersecel
         var adRequest = AdRequest.Builder().build()
 
         video()
-
 
     }
 

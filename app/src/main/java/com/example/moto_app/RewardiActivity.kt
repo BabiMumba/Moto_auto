@@ -32,11 +32,7 @@ class RewardiActivity : AppCompatActivity() {
             Log.d(TAG,"Oncreate:")
 
         }
-        MobileAds.setRequestConfiguration(
-            RequestConfiguration.Builder()
-                .setTestDeviceIds(listOf("TESTE_DEVICE_ID_1","TEST_DEVICE_ID_2","TEST_DEVICE_ID_N"))
-                .build()
-        )
+
         loadrewardedInters()
 
         loadAndShow.setOnClickListener{
@@ -57,7 +53,7 @@ class RewardiActivity : AppCompatActivity() {
 
         RewardedInterstitialAd.load(
             this,
-            resources.getString(R.string.rewarded_id_teste),
+            resources.getString(R.string.rewarded_ad_reel),
             AdRequest.Builder().build(),
             object : RewardedInterstitialAdLoadCallback(){
                 override fun onAdFailedToLoad(loadAdError: LoadAdError) {
@@ -135,7 +131,7 @@ class RewardiActivity : AppCompatActivity() {
 
         RewardedInterstitialAd.load(
             this,
-            resources.getString(R.string.rewarded_id_teste),
+            resources.getString(R.string.rewarded_ad_reel),
             AdRequest.Builder().build(),
             object : RewardedInterstitialAdLoadCallback(){
                 override fun onAdFailedToLoad(loadAdError: LoadAdError) {

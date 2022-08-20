@@ -7,18 +7,18 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".Admob">
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="banner"
         android:layout_centerInParent="true"
         />
-
     <com.google.android.gms.ads.AdView
         android:id="@+id/bannerAd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        ads:adUnitId="@string/banner_ad_reel"
-        ads:adSize="SMART_BANNER"/>
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_reel" />
 </RelativeLayout>

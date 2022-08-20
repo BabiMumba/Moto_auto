@@ -17,11 +17,7 @@ class Admob : AppCompatActivity() {
         MobileAds.initialize(this){
             Log.d(TAG,"inias complet")
         }
-        MobileAds.setRequestConfiguration(
-            RequestConfiguration.Builder()
-                .setTestDeviceIds(listOf("PLACE_TESTE_DEVICE_ID_1_HERE","PLACE_TESTE_DEVICE_ID_2_HERE"))
-                .build()
-        )
+
         adview = findViewById(R.id.bannerAd)
         val adRequest = AdRequest.Builder().build()
         //load ad
