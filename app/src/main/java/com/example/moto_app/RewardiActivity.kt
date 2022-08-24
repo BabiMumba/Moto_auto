@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_rewardi.*
 class RewardiActivity : AppCompatActivity() {
 
 
+    private var pts =  0
     private companion object{
         private const val TAG = "REWARDED_INTER_TAG"
     }
@@ -31,15 +32,15 @@ class RewardiActivity : AppCompatActivity() {
         showbtn = findViewById(R.id.showAdbtn)
         loadAndShow = findViewById(R.id.LoadAdbtn)
 
-        var pts =  0
+
         btn_pts.setOnClickListener {
-            ajouter.text = pts++.toString()
+            pts++
+            ajouter.text = pts.toString()
         }
 
         btn_dim.setOnClickListener {
-            ajouter.text = pts--.toString()
-
-
+            pts--
+            ajouter.text = pts.toString()
         }
 
         MobileAds.initialize(this){

@@ -8,6 +8,7 @@ import kotlin.random.Random
 class Calcul : AppCompatActivity() {
     private var score = 0
     private var calculatrice = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calcul)
