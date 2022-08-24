@@ -11,6 +11,7 @@ import com.google.android.gms.ads.*
 import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback
+import kotlinx.android.synthetic.main.activity_count_down.*
 import kotlinx.android.synthetic.main.activity_rewardi.*
 
 class RewardiActivity : AppCompatActivity() {
@@ -26,9 +27,10 @@ class RewardiActivity : AppCompatActivity() {
         setContentView(R.layout.activity_rewardi)
         showbtn = findViewById(R.id.showAdbtn)
         loadAndShow = findViewById(R.id.LoadAdbtn)
+        var Pts:Int =  1
 
         btn_pts.setOnClickListener {
-
+            pts.setText(Pts++)
         }
 
         MobileAds.initialize(this){
