@@ -17,6 +17,7 @@ class Calcul : AppCompatActivity() {
         setContentView(R.layout.activity_calcul)
 
 
+        loadData()
         teste()
 
         verf.setOnClickListener {
@@ -27,12 +28,14 @@ class Calcul : AppCompatActivity() {
                 pts.text = score.toString()
                 teste()
                 reponse.setText("")
+                savedata()
             }
             else
             {
                 pts.text = score--.toString()
                 teste()
                 reponse.setText("")
+                savedata()
 
             }
         }
@@ -47,7 +50,6 @@ class Calcul : AppCompatActivity() {
     }
     private fun savedata(){
         val inserText:String = pts.text.toString()
-
         val sharedPreferences:SharedPreferences = getSharedPreferences("sharedPefs",Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.apply{
