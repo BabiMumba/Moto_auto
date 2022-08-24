@@ -7,6 +7,7 @@ import kotlin.random.Random
 
 class Calcul : AppCompatActivity() {
     private var score = 0
+    private var calculatrice = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calcul)
@@ -15,20 +16,22 @@ class Calcul : AppCompatActivity() {
         val chif2:Int = Random.nextInt(0,100)
         txt1.text = chif1.toString()
         txt2.text = chif2.toString()
-       val rep = calculatrice(chif1,chif2)
+        calculatrice = chif1 + chif2
         verf.setOnClickListener {
             val repos = reponse.text.toString()
-            if (rep.equals(repos)){
+            if (repos == calculatrice.toString()){
                 score++
                 pts.text = score.toString()
             }
             else
             {
                 pts.text = "echouer"
+                txt1.text = chif1.toString()
+                txt2.text = chif2.toString()
+                calculatrice = chif1 + chif2
+
             }
         }
     }
-    private fun calculatrice(nbr1:Int,nbr2:Int){
-        nbr1+nbr2
-    }
+
 }
