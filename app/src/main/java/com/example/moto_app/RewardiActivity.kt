@@ -20,6 +20,7 @@ class RewardiActivity : AppCompatActivity() {
     private lateinit var showbtn : Button
     private lateinit var loadAndShow : Button
     private var mRewardedInterstitialAd : RewardedInterstitialAd? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rewardi)
@@ -109,6 +110,7 @@ class RewardiActivity : AppCompatActivity() {
 
                     override fun onAdImpression() {
                         super.onAdImpression()
+                        Toast.makeText(this@RewardiActivity, "pub valider", Toast.LENGTH_SHORT).show()
                         Log.d(TAG,"onAdImpression: ")
                     }
 

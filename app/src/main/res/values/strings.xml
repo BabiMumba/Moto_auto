@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Moto_app</string>
+
     <!--identifiant de teste-->
 
     <string name="app_id_teste">ca-app-pub-3940256099942544~3347511713</string>
