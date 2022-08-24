@@ -28,7 +28,7 @@
             android:name=".CountDownActivity"
             android:exported="false" />
         <activity
-            android:name=".RewardiActivity"
+            android:name=".ProfilActivity"
             android:exported="false" />
         <activity
             android:name=".InterstitialActivity"
@@ -58,7 +58,7 @@
             android:name=".DownloadActivity_kotline"
             android:exported="false" />
         <activity
-            android:name=".ProfilActivity"
+            android:name=".RewardiActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
