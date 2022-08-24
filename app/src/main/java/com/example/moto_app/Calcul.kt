@@ -1,7 +1,10 @@
 package com.example.moto_app
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_calcul.*
 import kotlin.random.Random
 
@@ -41,6 +44,21 @@ class Calcul : AppCompatActivity() {
         txt2.text = chif2.toString()
         calculatrice = chif1 + chif2
 
+    }
+    private fun savedata(){
+        val inserText:String = pts.text.toString()
+
+        val sharedPreferences:SharedPreferences = getSharedPreferences("sharedPefs",Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.apply{
+            putString("STRING_KEY",inserText)
+        }.apply()
+        Toast.makeText(this, "score sauvegarder", Toast.LENGTH_SHORT).show()
+    }
+    private fun loadData(){
+        val sharedPreferences:SharedPreferences = getSharedPreferences("sharedPefs",Context.MODE_PRIVATE)
+        val savestring = sharedPreferences.getString("STRING_KEY",null)
+        pts.text = savestring
     }
 
 }
