@@ -27,10 +27,10 @@ class RewardiActivity : AppCompatActivity() {
         setContentView(R.layout.activity_rewardi)
         showbtn = findViewById(R.id.showAdbtn)
         loadAndShow = findViewById(R.id.LoadAdbtn)
-        var Pts:Int =  1
+        var Pts =  1
 
         btn_pts.setOnClickListener {
-            pts.setText(Pts++)
+            ajouter.text = "salut"
         }
 
         MobileAds.initialize(this){
