@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_rewardi.*
 
 class RewardiActivity : AppCompatActivity() {
 
+
     private companion object{
         private const val TAG = "REWARDED_INTER_TAG"
     }
@@ -30,9 +31,7 @@ class RewardiActivity : AppCompatActivity() {
         showbtn = findViewById(R.id.showAdbtn)
         loadAndShow = findViewById(R.id.LoadAdbtn)
 
-        var pts =  1
-
-
+        var pts =  0
         btn_pts.setOnClickListener {
             ajouter.text = pts++.toString()
         }
