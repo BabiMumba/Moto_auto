@@ -28,9 +28,14 @@ class RewardiActivity : AppCompatActivity() {
         showbtn = findViewById(R.id.showAdbtn)
         loadAndShow = findViewById(R.id.LoadAdbtn)
         var pts =  1
+        var pts_dim = 1
+
 
         btn_pts.setOnClickListener {
-            ajouter.text = pts.toString()
+            ajouter.text = pts++.toString()
+        }
+        btn_dim.setOnClickListener {
+            ajouter.text = pts_dim--.toString()
         }
 
         MobileAds.initialize(this){
