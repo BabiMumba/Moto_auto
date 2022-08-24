@@ -1,5 +1,6 @@
 package com.example.moto_app
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_count_down.*
 import kotlinx.android.synthetic.main.activity_rewardi.*
 
 class RewardiActivity : AppCompatActivity() {
+
     private companion object{
         private const val TAG = "REWARDED_INTER_TAG"
     }
@@ -22,20 +24,23 @@ class RewardiActivity : AppCompatActivity() {
     private lateinit var loadAndShow : Button
     private var mRewardedInterstitialAd : RewardedInterstitialAd? = null
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rewardi)
+
         showbtn = findViewById(R.id.showAdbtn)
         loadAndShow = findViewById(R.id.LoadAdbtn)
+
         var pts =  1
-        var pts_dim = 1
+
 
         btn_pts.setOnClickListener {
-            ajouter.text = pts++.toString()
+            ajouter.text = (pts+1).toString()
         }
-        btn_dim.setOnClickListener {
-            ajouter.text = pts--.toString()
 
+        btn_dim.setOnClickListener {
+            ajouter.text = (pts-1).toString()
         }
 
         MobileAds.initialize(this){
