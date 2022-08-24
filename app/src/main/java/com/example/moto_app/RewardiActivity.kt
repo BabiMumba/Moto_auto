@@ -27,6 +27,10 @@ class RewardiActivity : AppCompatActivity() {
         showbtn = findViewById(R.id.showAdbtn)
         loadAndShow = findViewById(R.id.LoadAdbtn)
 
+        btn_pts.setOnClickListener {
+
+        }
+
         MobileAds.initialize(this){
             Log.d(TAG,"Oncreate:")
 
