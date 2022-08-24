@@ -13,6 +13,8 @@ class Calcul : AppCompatActivity() {
 
         val chif1:Int = Random.nextInt(0,100)
         val chif2:Int = Random.nextInt(0,100)
+        txt1.text = chif1.toString()
+        txt2.text = chif2.toString()
        val rep = calculatrice(chif1,chif2)
         verf.setOnClickListener {
             val repos = reponse.text.toString()
