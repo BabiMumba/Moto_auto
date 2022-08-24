@@ -35,7 +35,8 @@ class RewardiActivity : AppCompatActivity() {
             ajouter.text = pts++.toString()
         }
         btn_dim.setOnClickListener {
-            ajouter.text = pts_dim--.toString()
+            pts-1
+            ajouter.text = pts.toString()
         }
 
         MobileAds.initialize(this){
