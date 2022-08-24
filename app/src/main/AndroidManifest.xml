@@ -2,12 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.moto_app">
-
     <!-- debut des autorisation -->
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- Autorisation pour Android 11 (R) et supérieur -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- Autorisation pour Android 11 (R) et supérieur -->
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -23,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Moto_app"
         tools:targetApi="31">
+        <activity
+            android:name=".Calcul"
+            android:exported="false" />
         <activity
             android:name=".CheckStatusActivity"
             android:exported="false" />
@@ -59,18 +59,19 @@
         <activity
             android:name=".DownloadActivity_kotline"
             android:exported="false" />
-
         <activity
             android:name=".RewardiActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/app_id_reel"/>
+            android:value="@string/app_id_reel" />
     </application>
 
 </manifest>

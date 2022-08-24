@@ -1,6 +1,5 @@
 package com.example.moto_app
 
-import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +23,6 @@ class RewardiActivity : AppCompatActivity() {
     private lateinit var loadAndShow : Button
     private var mRewardedInterstitialAd : RewardedInterstitialAd? = null
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rewardi)
@@ -36,11 +34,13 @@ class RewardiActivity : AppCompatActivity() {
 
 
         btn_pts.setOnClickListener {
-            ajouter.text = (pts+1).toString()
+            ajouter.text = pts++.toString()
         }
 
         btn_dim.setOnClickListener {
-            ajouter.text = (pts-1).toString()
+            ajouter.text = pts--.toString()
+
+
         }
 
         MobileAds.initialize(this){
