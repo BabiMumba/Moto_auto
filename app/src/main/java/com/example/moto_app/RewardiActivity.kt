@@ -27,10 +27,10 @@ class RewardiActivity : AppCompatActivity() {
         setContentView(R.layout.activity_rewardi)
         showbtn = findViewById(R.id.showAdbtn)
         loadAndShow = findViewById(R.id.LoadAdbtn)
-        var Pts =  1
+        var pts =  1
 
         btn_pts.setOnClickListener {
-            ajouter.text = "salut"
+            ajouter.text = pts.toString()
         }
 
         MobileAds.initialize(this){
@@ -58,7 +58,6 @@ class RewardiActivity : AppCompatActivity() {
     }
 
     private fun loadrewardedInters() {
-
         RewardedInterstitialAd.load(
             this,
             resources.getString(R.string.rewarded_ad_reel),
@@ -152,9 +151,7 @@ class RewardiActivity : AppCompatActivity() {
                     mRewardedInterstitialAd = null
                     progressDialog.dismiss()
                     Toast.makeText(this@RewardiActivity, "ad was not loaded", Toast.LENGTH_SHORT).show()
-
                 }
-
                 override fun onAdLoaded(rewardedInterstitialAd: RewardedInterstitialAd) {
                     super.onAdLoaded(rewardedInterstitialAd)
                     Log.d(TAG,"OnLoaded")
