@@ -75,7 +75,6 @@ class RewardiActivity : AppCompatActivity() {
 
                 override fun onAdLoaded(rewardedInterstitialAd: RewardedInterstitialAd) {
                     super.onAdLoaded(rewardedInterstitialAd)
-
                     Log.d(TAG,"OnLoaded")
                     Toast.makeText(this@RewardiActivity, "video pret", Toast.LENGTH_SHORT).show()
                     mRewardedInterstitialAd = rewardedInterstitialAd
@@ -114,7 +113,6 @@ class RewardiActivity : AppCompatActivity() {
                         Log.d(TAG,"onAdfailedtoShowFullscreen: ${adError.message} ")
                         mRewardedInterstitialAd = null
                     }
-
                     override fun onAdImpression() {
                         super.onAdImpression()
                         Toast.makeText(this@RewardiActivity, "pub valider", Toast.LENGTH_SHORT).show()
