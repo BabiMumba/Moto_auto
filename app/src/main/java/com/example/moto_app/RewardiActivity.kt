@@ -33,15 +33,7 @@ class RewardiActivity : AppCompatActivity() {
         loadAndShow = findViewById(R.id.LoadAdbtn)
 
 
-        btn_pts.setOnClickListener {
-            pts++
-            ajouter.text = pts.toString()
-        }
 
-        btn_dim.setOnClickListener {
-            pts--
-            ajouter.text = pts.toString()
-        }
 
         MobileAds.initialize(this){
             Log.d(TAG,"Oncreate:")

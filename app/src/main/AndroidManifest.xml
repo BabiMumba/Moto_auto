@@ -30,7 +30,7 @@
             android:name=".CountDownActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfilActivity"
+            android:name=".Calcul"
             android:exported="false" />
         <activity
             android:name=".InterstitialActivity"
@@ -60,7 +60,7 @@
             android:name=".DownloadActivity_kotline"
             android:exported="false" />
         <activity
-            android:name=".Calcul"
+            android:name=".ProfilActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

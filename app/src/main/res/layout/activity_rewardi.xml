@@ -21,36 +21,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/LoadAdbtn"
         />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_pts"
-            android:text="Ajouter"
-            android:textAllCaps="false"
-            android:layout_marginEnd="4dp"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_dim"
-            android:text="Dimunier"
-            android:textAllCaps="false"
-            />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="point:"
-        android:id="@+id/ajouter"
-        android:layout_margin="10dp"
-        />
 
 
 </LinearLayout>
