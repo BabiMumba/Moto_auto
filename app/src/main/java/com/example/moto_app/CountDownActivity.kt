@@ -8,16 +8,20 @@ import kotlinx.android.synthetic.main.activity_count_down.*
 
 class CountDownActivity : AppCompatActivity() {
 
-    var pts = 34
+    private var pts = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_count_down)
-        pts.toString()
 
         point.text = "$pts"
         ajoute.setOnClickListener {
-        pts++
+            pts++
+            point.text = pts.toString()
+
+        }
+        publish.setOnClickListener {
+            save(pts.toString())
         }
     }
 
