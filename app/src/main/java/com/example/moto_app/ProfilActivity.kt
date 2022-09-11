@@ -19,6 +19,7 @@ class ProfilActivity : AppCompatActivity() {
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
+
         binding.countDown.setOnClickListener {
             startActivity(Intent(this,CountDownActivity::class.java))
         }
@@ -42,7 +43,7 @@ class ProfilActivity : AppCompatActivity() {
     private fun checkUser() {
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser != null){
-            val email = firebaseUser.email
+            val email = firebaseUser.displayName
             binding.myname.text = email
 
         }else{
