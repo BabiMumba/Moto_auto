@@ -22,6 +22,7 @@
             android:text="Nombre des Points : "
             />
         <TextView
+            android:id="@+id/point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1"
@@ -31,9 +32,11 @@
 
     </LinearLayout>
     <Button
+        android:id="@+id/ajoute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ajouter"
+        android:textAllCaps="false"
         />
 
 
