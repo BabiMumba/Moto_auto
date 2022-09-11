@@ -31,6 +31,14 @@
             />
 
     </LinearLayout>
+    <EditText
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="nombre"
+        android:id="@+id/nbre"
+        android:inputType="number"
+        />
     <LinearLayout
         android:gravity="center"
         android:layout_width="match_parent"
@@ -42,6 +50,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ajouter"
+            android:textAllCaps="false"
+            />
+        <Button
+            android:layout_marginStart="5dp"
+            android:id="@+id/update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modifier"
             android:textAllCaps="false"
             />
         <Button

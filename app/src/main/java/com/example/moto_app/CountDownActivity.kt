@@ -3,7 +3,9 @@ package com.example.moto_app
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.activity_count_down.*
 
 class CountDownActivity : AppCompatActivity() {
@@ -14,6 +16,11 @@ class CountDownActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_count_down)
 
+
+
+        //recuperer le document
+
+
         point.text = "$pts"
         ajoute.setOnClickListener {
             pts++
@@ -23,19 +30,37 @@ class CountDownActivity : AppCompatActivity() {
         publish.setOnClickListener {
             save(pts.toString())
         }
+        update.setOnClickListener {
+            ajour()
+        }
+
     }
 
     fun save(nb:String){
         val db = FirebaseFirestore.getInstance()
         val point:MutableMap<String , Any> = HashMap()
-        point["12"] = nb
+
+        point["pts"] = nb
         db.collection("point")
-            .add(point)
+            .document("nb_point")
+            .set(point)
             .addOnSuccessListener {
                 Toast.makeText(this, "nombre ajouter", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show()
+            }
+    }
+    fun ajour(){
+        val db = FirebaseFirestore.getInstance()
+        val nombre = db.collection("point").document("nb_point")
+        nombre.update("pts",FieldValue.increment(1))
+            .addOnSuccessListener {
+                Toast.makeText(this, "Document mis ajours", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "mis ajour ", Toast.LENGTH_SHORT).show()
+
             }
 
 
