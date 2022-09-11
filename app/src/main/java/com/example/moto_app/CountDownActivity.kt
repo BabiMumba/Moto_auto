@@ -1,7 +1,9 @@
 package com.example.moto_app
 
+import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -19,8 +21,7 @@ class CountDownActivity : AppCompatActivity() {
 
 
         //recuperer le document
-
-
+        read()
         point.text = "$pts"
         ajoute.setOnClickListener {
             pts++
@@ -62,7 +63,22 @@ class CountDownActivity : AppCompatActivity() {
                 Toast.makeText(this, "mis ajour ", Toast.LENGTH_SHORT).show()
 
             }
-
+    }
+    fun read(){
+        val db = FirebaseFirestore.getInstance()
+        val docRef = db.collection("point").document("nb_point")
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    println("${document.data}")
+                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+                } else {
+                    Log.d(TAG, "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "get failed with ", exception)
+            }
 
     }
    }
