@@ -21,8 +21,7 @@ class CountDownActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_count_down)
 
-
-
+        firebaseAuth = FirebaseAuth.getInstance()
         //recuperer le document
 
         read()
@@ -82,7 +81,6 @@ class CountDownActivity : AppCompatActivity() {
             .addOnFailureListener {
                 progressDialog.dismiss()
                 Toast.makeText(this, "Erreur de chargement ", Toast.LENGTH_SHORT).show()
-
             }
         read()
     }
@@ -91,24 +89,32 @@ class CountDownActivity : AppCompatActivity() {
         progressDialog.setTitle("Patienter...")
         progressDialog.setMessage("chargement Encours...")
         progressDialog.show()
-        val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection("point").document("nb_point")
-        docRef.get()
-            .addOnSuccessListener { document ->
-                progressDialog.dismiss()
-                if (document != null) {
-                    rd.text = document.data?.getValue("pts").toString()
-                    println(document.data?.getValue("pts"))
-                    Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-                } else {
-                    Log.d(TAG, "No such document")
-                }
-            }
-            .addOnFailureListener { exception ->
-                progressDialog.dismiss()
-                Log.d(TAG, "get failed with ", exception)
-            }
 
+        val firebaseUser = firebaseAuth.currentUser
+        if (firebaseUser != null){
+            val email = firebaseUser.email.toString()
+            var nom = email.replaceAfter("@","")
+            val db = FirebaseFirestore.getInstance()
+            val docRef = db.collection("point").document(nom)
+            docRef.get()
+                .addOnSuccessListener { document ->
+                    progressDialog.dismiss()
+                    if (document != null) {
+                        rd.text = document.data?.getValue("point").toString()
+
+                        Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+                    } else {
+                        Log.d(TAG, "No such document")
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    progressDialog.dismiss()
+                    //Log.d(TAG, "get failed with ", exception)
+                }
+        }else{
+            startActivity(Intent(this,LoginActivity::class.java))
+            finish()
+        }
     }
 
     fun rrdead(){

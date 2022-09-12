@@ -12,6 +12,7 @@ import com.google.android.gms.ads.*
 import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_count_down.*
@@ -19,9 +20,11 @@ import kotlinx.android.synthetic.main.activity_rewardi.*
 
 class RewardiActivity : AppCompatActivity() {
 
+
     private companion object{
         private const val TAG = "REWARDED_INTER_TAG"
     }
+    private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var showbtn : Button
     private lateinit var loadAndShow : Button
     private var mRewardedInterstitialAd : RewardedInterstitialAd? = null
@@ -29,6 +32,7 @@ class RewardiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rewardi)
+        firebaseAuth = FirebaseAuth.getInstance()
 
         read()
         showbtn = findViewById(R.id.showAdbtn)
