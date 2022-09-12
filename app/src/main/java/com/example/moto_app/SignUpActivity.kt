@@ -65,6 +65,7 @@ class SignUpActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 val firebaseuser = firebaseAuth.currentUser
                 val mail = firebaseuser!!.email
+                cretedoc(mail.toString())
                 Toast.makeText(this, "compte creer avec succer", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this,ProfilActivity::class.java))
                 finish()
@@ -81,11 +82,11 @@ class SignUpActivity : AppCompatActivity() {
         return super.onSupportNavigateUp()
     }
     fun cretedoc(nom:String){
-
+        var noms = nom.replaceAfter("@","")
         val db = FirebaseFirestore.getInstance()
         val point:MutableMap<String , Any> = HashMap()
         db.collection("point")
-            .document(nom)
+            .document(noms)
             .set(point)
             .addOnSuccessListener {
                 Toast.makeText(this, "document creer", Toast.LENGTH_SHORT).show()
