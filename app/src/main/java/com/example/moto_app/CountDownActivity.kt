@@ -45,7 +45,6 @@ class CountDownActivity : AppCompatActivity() {
     fun save(nb:String){
         val db = FirebaseFirestore.getInstance()
         val point:MutableMap<String , Any> = HashMap()
-
         point["pts"] = nb
         db.collection("point")
             .document("nb_point")
@@ -85,7 +84,6 @@ class CountDownActivity : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
         val docRef = db.collection("point").document("nb_point")
         docRef.get()
-
             .addOnSuccessListener { document ->
                 progressDialog.dismiss()
                 if (document != null) {

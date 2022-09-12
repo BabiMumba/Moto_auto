@@ -11,6 +11,7 @@ import android.widget.Toast
 import com.example.moto_app.databinding.ActivityLoginBinding
 import com.example.moto_app.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class SignUpActivity : AppCompatActivity() {
@@ -64,14 +65,13 @@ class SignUpActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 val firebaseuser = firebaseAuth.currentUser
                 val mail = firebaseuser!!.email
-
                 Toast.makeText(this, "compte creer avec succer", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this,ProfilActivity::class.java))
                 finish()
             }
             .addOnFailureListener {
                 progressDialog.dismiss()
-                Toast.makeText(this, "erreur compte non creer", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Erreur compte non creer", Toast.LENGTH_SHORT).show()
 
             }
     }
@@ -80,4 +80,20 @@ class SignUpActivity : AppCompatActivity() {
         onBackPressed()
         return super.onSupportNavigateUp()
     }
+    fun cretedoc(nom:String){
+
+        val db = FirebaseFirestore.getInstance()
+        val point:MutableMap<String , Any> = HashMap()
+        db.collection("point")
+            .document(nom)
+            .set(point)
+            .addOnSuccessListener {
+                Toast.makeText(this, "document creer", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+
 }

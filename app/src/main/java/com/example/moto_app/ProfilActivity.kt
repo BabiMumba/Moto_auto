@@ -17,9 +17,10 @@ class ProfilActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
-
         binding.countDown.setOnClickListener {
             startActivity(Intent(this,CountDownActivity::class.java))
         }
