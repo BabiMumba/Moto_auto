@@ -38,8 +38,10 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun valideteData() {
+
         mail = binding.mailRegister.text.toString().trim()
         password = binding.passwordRegister.text.toString().trim()
+
         if (!Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
             binding.mailRegister.error = "mail invalide"
         }else if (TextUtils.isEmpty(password)){
@@ -60,9 +62,9 @@ class SignUpActivity : AppCompatActivity() {
         firebaseAuth.createUserWithEmailAndPassword(mail,password)
             .addOnSuccessListener {
                 progressDialog.dismiss()
-
                 val firebaseuser = firebaseAuth.currentUser
                 val mail = firebaseuser!!.email
+
                 Toast.makeText(this, "compte creer avec succer", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this,ProfilActivity::class.java))
                 finish()

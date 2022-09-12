@@ -102,6 +102,7 @@ class CountDownActivity : AppCompatActivity() {
             }
 
     }
+
     fun rrdead(){
         val db = FirebaseFirestore.getInstance()
         db.collection("point")

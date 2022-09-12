@@ -43,9 +43,8 @@ class ProfilActivity : AppCompatActivity() {
     private fun checkUser() {
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser != null){
-            val email = firebaseUser.displayName
+            val email = firebaseUser.email.toString()
             binding.myname.text = email
-
         }else{
             startActivity(Intent(this,LoginActivity::class.java))
             finish()

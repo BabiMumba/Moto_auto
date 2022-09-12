@@ -1,6 +1,7 @@
 package com.example.moto_app
 
 import android.app.ProgressDialog
+import android.content.ContentValues
 import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,13 +12,13 @@ import com.google.android.gms.ads.*
 import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd
 import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_count_down.*
 import kotlinx.android.synthetic.main.activity_rewardi.*
 
 class RewardiActivity : AppCompatActivity() {
 
-
-    private var pts =  0
     private companion object{
         private const val TAG = "REWARDED_INTER_TAG"
     }
@@ -29,15 +30,12 @@ class RewardiActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rewardi)
 
+        read()
         showbtn = findViewById(R.id.showAdbtn)
         loadAndShow = findViewById(R.id.LoadAdbtn)
 
-
-
-
         MobileAds.initialize(this){
             Log.d(TAG,"Oncreate:")
-
         }
         MobileAds.setRequestConfiguration(
             RequestConfiguration.Builder()
@@ -96,11 +94,9 @@ class RewardiActivity : AppCompatActivity() {
                         Toast.makeText(this@RewardiActivity, "vous avez cliquez sur la pub", Toast.LENGTH_SHORT).show()
 
                     }
-
                     override fun onAdDismissedFullScreenContent() {
                         super.onAdDismissedFullScreenContent()
                         Toast.makeText(this@RewardiActivity, "Vous avez fermer ", Toast.LENGTH_SHORT).show()
-
                         Log.d(TAG,"onAddismissFullScreen: ")
 
                         mRewardedInterstitialAd = null
@@ -124,8 +120,10 @@ class RewardiActivity : AppCompatActivity() {
                         Log.d(TAG,"onAdShowFullScreencontente: ")
 
                     }
+
                 }
             mRewardedInterstitialAd!!.show(this){
+                ajouter()
                 Toast.makeText(this, "recompence accorder", Toast.LENGTH_SHORT).show()
                 Log.d(TAG,"onUserEarnedrewarded: ")
             }
@@ -166,5 +164,42 @@ class RewardiActivity : AppCompatActivity() {
 
         )
 
+    }
+    fun read(){
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Patienter...")
+        progressDialog.setMessage("chargement Encours...")
+        progressDialog.show()
+        val db = FirebaseFirestore.getInstance()
+        val docRef = db.collection("point").document("nb_point")
+        docRef.get()
+            .addOnSuccessListener { document ->
+                progressDialog.dismiss()
+                if (document != null) {
+                    pts_rd.text = document.data?.getValue("pts").toString()
+                    println(document.data?.getValue("pts"))
+                    Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
+                } else {
+                    Log.d(ContentValues.TAG, "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                progressDialog.dismiss()
+                Log.d(ContentValues.TAG, "get failed with ", exception)
+            }
+
+    }
+    fun ajouter(){
+              val db = FirebaseFirestore.getInstance()
+        val nombre = db.collection("point").document("nb_point")
+        nombre.update("pts", FieldValue.increment(5))
+            .addOnSuccessListener {
+                Toast.makeText(this, "Document mis ajours", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Erreur de chargement ", Toast.LENGTH_SHORT).show()
+
+            }
+        read()
     }
 }
