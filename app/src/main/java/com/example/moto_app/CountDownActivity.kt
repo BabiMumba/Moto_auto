@@ -67,14 +67,12 @@ class CountDownActivity : AppCompatActivity() {
         val nombre = db.collection("point").document("nb_point")
         nombre.update("pts",FieldValue.increment(1))
             .addOnSuccessListener {
-                super.onResume()
                 progressDialog.dismiss()
                 Toast.makeText(this, "Document mis ajours", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
-                super.onResume()
                 progressDialog.dismiss()
-                Toast.makeText(this, "mis ajour ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Erreur de chargement ", Toast.LENGTH_SHORT).show()
 
             }
         read()
@@ -89,7 +87,6 @@ class CountDownActivity : AppCompatActivity() {
         docRef.get()
 
             .addOnSuccessListener { document ->
-                super.onResume()
                 progressDialog.dismiss()
                 if (document != null) {
                     rd.text = document.data?.getValue("pts").toString()
@@ -100,7 +97,6 @@ class CountDownActivity : AppCompatActivity() {
                 }
             }
             .addOnFailureListener { exception ->
-                super.onResume()
                 progressDialog.dismiss()
                 Log.d(TAG, "get failed with ", exception)
             }

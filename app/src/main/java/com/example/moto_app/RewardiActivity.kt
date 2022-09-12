@@ -122,6 +122,7 @@ class RewardiActivity : AppCompatActivity() {
                     override fun onAdShowedFullScreenContent() {
                         super.onAdShowedFullScreenContent()
                         Log.d(TAG,"onAdShowFullScreencontente: ")
+
                     }
                 }
             mRewardedInterstitialAd!!.show(this){
