@@ -85,6 +85,7 @@ class SignUpActivity : AppCompatActivity() {
         var noms = nom.replaceAfter("@","")
         val db = FirebaseFirestore.getInstance()
         val point:MutableMap<String , Any> = HashMap()
+        point["Point"] = 5
         db.collection("point")
             .document(noms)
             .set(point)

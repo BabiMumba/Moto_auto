@@ -2,10 +2,12 @@ package com.example.moto_app
 
 import android.app.ProgressDialog
 import android.content.ContentValues.TAG
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -14,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_count_down.*
 class CountDownActivity : AppCompatActivity() {
 
     private var pts = 0
-
+    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_count_down)
@@ -34,10 +36,17 @@ class CountDownActivity : AppCompatActivity() {
          */
 
         publish.setOnClickListener {
-            save(pts.toString())
+
         }
         update.setOnClickListener {
-            ajour()
+            val firebaseUser = firebaseAuth.currentUser
+            if (firebaseUser != null){
+                val email = firebaseUser.email.toString()
+                ajour(email)
+            }else{
+                startActivity(Intent(this,LoginActivity::class.java))
+                finish()
+            }
         }
 
     }
@@ -56,15 +65,16 @@ class CountDownActivity : AppCompatActivity() {
                 Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show()
             }
     }
-    fun ajour(){
+
+    fun ajour(nom:String){
         val progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Patienter...")
         progressDialog.setMessage("chargement Encours...")
         progressDialog.show()
-
         val db = FirebaseFirestore.getInstance()
-        val nombre = db.collection("point").document("nb_point")
-        nombre.update("pts",FieldValue.increment(1))
+        var noms = nom.replaceAfter("@","")
+        val nombre = db.collection("point").document(noms)
+        nombre.update("point",FieldValue.increment(1))
             .addOnSuccessListener {
                 progressDialog.dismiss()
                 Toast.makeText(this, "Document mis ajours", Toast.LENGTH_SHORT).show()
