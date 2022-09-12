@@ -1,5 +1,6 @@
 package com.example.moto_app
 
+import android.app.ProgressDialog
 import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -68,11 +69,18 @@ class CountDownActivity : AppCompatActivity() {
             }
     }
     fun read(){
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Patienter...")
+        progressDialog.setMessage("chargement Encours...")
+        progressDialog.show()
+
         val db = FirebaseFirestore.getInstance()
         val docRef = db.collection("point").document("nb_point")
         docRef.get()
 
             .addOnSuccessListener { document ->
+                super.onResume()
+                progressDialog.dismiss()
                 if (document != null) {
                     rd.text = document.data?.getValue("pts").toString()
                     println(document.data?.getValue("pts"))
@@ -82,8 +90,11 @@ class CountDownActivity : AppCompatActivity() {
                 }
             }
             .addOnFailureListener { exception ->
+                super.onResume()
+                progressDialog.dismiss()
                 Log.d(TAG, "get failed with ", exception)
             }
 
     }
+
    }

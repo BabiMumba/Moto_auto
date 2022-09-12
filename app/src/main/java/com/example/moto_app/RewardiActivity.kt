@@ -135,6 +135,7 @@ class RewardiActivity : AppCompatActivity() {
         }
     }
     private fun loadAndShowRewarded(){
+
         val progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Patienter...")
         progressDialog.setMessage("chargement de la video...")
