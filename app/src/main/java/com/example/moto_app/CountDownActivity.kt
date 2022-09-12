@@ -22,6 +22,7 @@ class CountDownActivity : AppCompatActivity() {
 
 
         //recuperer le document
+
         read()
         /*
         point.text = "$pts"
@@ -57,13 +58,22 @@ class CountDownActivity : AppCompatActivity() {
             }
     }
     fun ajour(){
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Patienter...")
+        progressDialog.setMessage("chargement Encours...")
+        progressDialog.show()
+
         val db = FirebaseFirestore.getInstance()
         val nombre = db.collection("point").document("nb_point")
         nombre.update("pts",FieldValue.increment(1))
             .addOnSuccessListener {
+                super.onResume()
+                progressDialog.dismiss()
                 Toast.makeText(this, "Document mis ajours", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
+                super.onResume()
+                progressDialog.dismiss()
                 Toast.makeText(this, "mis ajour ", Toast.LENGTH_SHORT).show()
 
             }
@@ -73,7 +83,6 @@ class CountDownActivity : AppCompatActivity() {
         progressDialog.setTitle("Patienter...")
         progressDialog.setMessage("chargement Encours...")
         progressDialog.show()
-
         val db = FirebaseFirestore.getInstance()
         val docRef = db.collection("point").document("nb_point")
         docRef.get()
