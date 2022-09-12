@@ -77,6 +77,7 @@ class CountDownActivity : AppCompatActivity() {
                 Toast.makeText(this, "mis ajour ", Toast.LENGTH_SHORT).show()
 
             }
+        read()
     }
     fun read(){
         val progressDialog = ProgressDialog(this)
@@ -102,6 +103,22 @@ class CountDownActivity : AppCompatActivity() {
                 super.onResume()
                 progressDialog.dismiss()
                 Log.d(TAG, "get failed with ", exception)
+            }
+
+    }
+    fun rrdead(){
+        val db = FirebaseFirestore.getInstance()
+        db.collection("point")
+            .whereEqualTo("pts",true)
+            .get()
+            .addOnCompleteListener {
+                val resul = StringBuffer()
+                if (it.isSuccessful){
+                    for (document in it.result){
+                        resul.append(document.data.getValue("pts"))
+                    }
+                    rd.text = resul
+                }
             }
 
     }
