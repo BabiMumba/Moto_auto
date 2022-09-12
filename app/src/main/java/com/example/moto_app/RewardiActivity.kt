@@ -170,18 +170,20 @@ class RewardiActivity : AppCompatActivity() {
 
     }
     fun read(){
+        val firebaseUser = firebaseAuth.currentUser
+        val email = firebaseUser?.email.toString()
+        var nom = email.replaceAfter("@","")
         val progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Patienter...")
         progressDialog.setMessage("chargement Encours...")
         progressDialog.show()
         val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection("point").document("nb_point")
+        val docRef = db.collection("point").document(nom)
         docRef.get()
             .addOnSuccessListener { document ->
                 progressDialog.dismiss()
                 if (document != null) {
-                    pts_rd.text = document.data?.getValue("pts").toString()
-                    println(document.data?.getValue("pts"))
+                    pts_rd.text = document.data?.getValue("point").toString()
                     Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
                 } else {
                     Log.d(ContentValues.TAG, "No such document")
@@ -194,9 +196,12 @@ class RewardiActivity : AppCompatActivity() {
 
     }
     fun ajouter(){
-              val db = FirebaseFirestore.getInstance()
-        val nombre = db.collection("point").document("nb_point")
-        nombre.update("pts", FieldValue.increment(5))
+        val firebaseUser = firebaseAuth.currentUser
+        val email = firebaseUser?.email.toString()
+        var nom = email.replaceAfter("@","")
+        val db = FirebaseFirestore.getInstance()
+        val nombre = db.collection("point").document(nom)
+        nombre.update("point", FieldValue.increment(5))
             .addOnSuccessListener {
                 Toast.makeText(this, "Document mis ajours", Toast.LENGTH_SHORT).show()
             }
