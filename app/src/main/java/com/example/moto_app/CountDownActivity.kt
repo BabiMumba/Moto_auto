@@ -22,12 +22,15 @@ class CountDownActivity : AppCompatActivity() {
 
         //recuperer le document
         read()
+        /*
         point.text = "$pts"
         ajoute.setOnClickListener {
             pts++
             point.text = pts.toString()
 
         }
+         */
+
         publish.setOnClickListener {
             save(pts.toString())
         }
@@ -68,9 +71,11 @@ class CountDownActivity : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
         val docRef = db.collection("point").document("nb_point")
         docRef.get()
+
             .addOnSuccessListener { document ->
                 if (document != null) {
-                    println("${document.data}")
+                    rd.text = document.data?.getValue("pts").toString()
+                    println(document.data?.getValue("pts"))
                     Log.d(TAG, "DocumentSnapshot data: ${document.data}")
                 } else {
                     Log.d(TAG, "No such document")

@@ -14,18 +14,19 @@
         android:orientation="horizontal"
         >
         <TextView
+            android:id="@+id/point"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre des Points : "
+            android:text="Points : "
             />
         <TextView
-            android:id="@+id/point"
+            android:id="@+id/rd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1"
+            android:text="5"
             android:textSize="20sp"
             android:textColor="@color/black"
             />
