@@ -21,7 +21,7 @@
         android:theme="@style/Theme.Moto_app"
         tools:targetApi="31">
         <activity
-            android:name=".GridActivity"
+            android:name=".ProfilActivity"
             android:exported="false" />
         <activity
             android:name=".RewardiActivity"
@@ -31,9 +31,6 @@
             android:exported="false" />
         <activity
             android:name=".CountDownActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Calcul"
             android:exported="false" />
         <activity
             android:name=".InterstitialActivity"
@@ -63,7 +60,7 @@
             android:name=".DownloadActivity_kotline"
             android:exported="false" />
         <activity
-            android:name=".ProfilActivity"
+            android:name=".GridActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
