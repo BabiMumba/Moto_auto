@@ -73,7 +73,7 @@ class CountDownActivity : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
         var noms = nom.replaceAfter("@","")
         val nombre = db.collection("point").document(noms)
-        nombre.update("point",FieldValue.increment(1))
+        nombre.update("Point",FieldValue.increment(1))
             .addOnSuccessListener {
                 progressDialog.dismiss()
                 Toast.makeText(this, "Document mis ajours", Toast.LENGTH_SHORT).show()
@@ -100,7 +100,7 @@ class CountDownActivity : AppCompatActivity() {
                 .addOnSuccessListener { document ->
                     progressDialog.dismiss()
                     if (document != null) {
-                        rd.text = document.data?.getValue("point").toString()
+                        rd.text = document.data?.getValue("Point").toString()
 
                         Log.d(TAG, "DocumentSnapshot data: ${document.data}")
                     } else {

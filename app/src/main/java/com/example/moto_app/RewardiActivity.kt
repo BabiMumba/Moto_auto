@@ -183,7 +183,7 @@ class RewardiActivity : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 progressDialog.dismiss()
                 if (document != null) {
-                    pts_rd.text = document.data?.getValue("point").toString()
+                    pts_rd.text = document.data?.getValue("Point").toString()
                     Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
                 } else {
                     Log.d(ContentValues.TAG, "No such document")
@@ -201,13 +201,12 @@ class RewardiActivity : AppCompatActivity() {
         var nom = email.replaceAfter("@","")
         val db = FirebaseFirestore.getInstance()
         val nombre = db.collection("point").document(nom)
-        nombre.update("point", FieldValue.increment(5))
+        nombre.update("Point", FieldValue.increment(5))
             .addOnSuccessListener {
                 Toast.makeText(this, "Document mis ajours", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Erreur de chargement ", Toast.LENGTH_SHORT).show()
-
             }
         read()
     }
