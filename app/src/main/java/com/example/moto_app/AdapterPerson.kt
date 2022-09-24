@@ -16,7 +16,7 @@ class AdapterPerson(private val modelPersonList: List<ModelPerson>, private val 
     RecyclerView.Adapter<AdapterPerson.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_person_list, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.book_ui_item, parent, false)
         return ViewHolder(itemView)
     }
 
@@ -44,9 +44,9 @@ class AdapterPerson(private val modelPersonList: List<ModelPerson>, private val 
         }
 
         init {
-            tvName = itemView.findViewById(R.id.tvName)
-            tvEmail = itemView.findViewById(R.id.tvEmail)
-            ivPersonImage = itemView.findViewById(R.id.ivPersonImage)
+            tvName = itemView.findViewById(R.id.titre_book)
+            tvEmail = itemView.findViewById(R.id.name)
+            ivPersonImage = itemView.findViewById(R.id.cover_book)
             itemView.setOnClickListener(this)
         }
     }
