@@ -29,7 +29,7 @@ class InterstitialActivity : AppCompatActivity() {
 
         MobileAds.setRequestConfiguration(
             RequestConfiguration.Builder()
-               // .setTestDeviceIds(listOf("e3ecfe91-a277-4650-92e0-4f0cf2ad9c13","e4daca5f-a422-4831-b688-7b0b0d1da7cc"))
+                .setTestDeviceIds(listOf("c0404e6b-d5c3-4498-89e3-7ae83f90e059","e4daca5f-a422-4831-b688-7b0b0d1da7cc"))
                 .build()
         )
         loadInterstitialAd()
@@ -42,7 +42,7 @@ class InterstitialActivity : AppCompatActivity() {
     }
     private fun loadInterstitialAd(){
         val adRequest = AdRequest.Builder().build()
-        InterstitialAd.load(this,resources.getString(R.string.Intertitial_id_teste),adRequest,
+        InterstitialAd.load(this,resources.getString(R.string.Intertitial_ad_reel),adRequest,
             object :InterstitialAdLoadCallback(){
                 override fun equals(other: Any?): Boolean {
                     return super.equals(other)
