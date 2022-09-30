@@ -42,7 +42,6 @@ class AdapterPerson(private val modelPersonList: List<ModelPerson>, private val 
             val modelPerson = modelPersonList[adapterPosition]
             Toast.makeText(context, modelPerson.personName, Toast.LENGTH_SHORT).show()
         }
-
         init {
             tvName = itemView.findViewById(R.id.titre_book)
             tvEmail = itemView.findViewById(R.id.name)
