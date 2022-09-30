@@ -146,7 +146,7 @@ class RewardiActivity : AppCompatActivity() {
 
         RewardedInterstitialAd.load(
             this,
-            resources.getString(R.string.rewarded_ad_reel),
+            resources.getString(R.string.rewarded_id_teste),
             AdRequest.Builder().build(),
             object : RewardedInterstitialAdLoadCallback(){
                 override fun onAdFailedToLoad(loadAdError: LoadAdError) {
