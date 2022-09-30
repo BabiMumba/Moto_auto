@@ -43,7 +43,7 @@ class RewardiActivity : AppCompatActivity() {
         }
         MobileAds.setRequestConfiguration(
             RequestConfiguration.Builder()
-                .setTestDeviceIds(listOf("e3ecfe91-a277-4650-92e0-4f0cf2ad9c13","e4daca5f-a422-4831-b688-7b0b0d1da7cc"))
+                //.setTestDeviceIds(listOf("e3ecfe91-a277-4650-92e0-4f0cf2ad9c13","e4daca5f-a422-4831-b688-7b0b0d1da7cc"))
                 .build()
         )
 
@@ -64,7 +64,7 @@ class RewardiActivity : AppCompatActivity() {
     private fun loadrewardedInters() {
         RewardedInterstitialAd.load(
             this,
-            resources.getString(R.string.rewarded_ad_reel),
+            resources.getString(R.string.rewarded_id_teste),
             //AdRequest adRequest = new AdRequest.Builder().addTestDevice("94DF0193F80DB5F14BFF0EA958D02BC9").build();
             AdRequest.Builder().build(),
 
