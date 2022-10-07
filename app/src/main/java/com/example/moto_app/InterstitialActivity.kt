@@ -103,4 +103,10 @@ class InterstitialActivity : AppCompatActivity() {
         Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
     }
 
+    override fun onBackPressed() {
+        showInterstitialAd()
+        super.onBackPressed()
+    }
+
 }
+
