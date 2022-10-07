@@ -62,6 +62,7 @@ class RewardiActivity : AppCompatActivity() {
     }
 
     private fun loadrewardedInters() {
+
         RewardedInterstitialAd.load(
             this,
             resources.getString(R.string.rewarded_ad_reel),
