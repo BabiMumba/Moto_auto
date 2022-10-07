@@ -99,6 +99,7 @@ class InterstitialActivity : AppCompatActivity() {
             toast("Ad was not loaded task e.g start activity")
         }
     }
+
     private fun toast(message:String){
         Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
     }

@@ -170,6 +170,9 @@ class RewardiActivity : AppCompatActivity() {
         )
 
     }
+
+
+
     fun read(){
 
         val firebaseUser = firebaseAuth.currentUser
