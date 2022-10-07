@@ -52,12 +52,9 @@ class RewardiActivity : AppCompatActivity() {
         loadAndShow.setOnClickListener{
             loadAndShowRewarded()
         }
-
         showbtn.setOnClickListener {
             showRewardedInters()
-
         }
-
 
     }
 
@@ -166,12 +163,9 @@ class RewardiActivity : AppCompatActivity() {
                     showRewardedInters()
                 }
             }
-
         )
 
     }
-
-
 
     fun read(){
 

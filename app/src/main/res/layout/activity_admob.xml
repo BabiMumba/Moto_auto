@@ -20,5 +20,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_reel" />
+        ads:adUnitId="@string/banner_id_teste" />
 </RelativeLayout>
