@@ -170,6 +170,7 @@ class RewardiActivity : AppCompatActivity() {
 
     }
     fun read(){
+
         val firebaseUser = firebaseAuth.currentUser
         val email = firebaseUser?.email.toString()
         var nom = email.replaceAfter("@","")
@@ -196,11 +197,13 @@ class RewardiActivity : AppCompatActivity() {
 
     }
     fun ajouter(){
+
         val firebaseUser = firebaseAuth.currentUser
         val email = firebaseUser?.email.toString()
-        var nom = email.replaceAfter("@","")
+        val nom = email.replaceAfter("@","")
         val db = FirebaseFirestore.getInstance()
         val nombre = db.collection("point").document(nom)
+
         nombre.update("Point", FieldValue.increment(5))
             .addOnSuccessListener {
                 Toast.makeText(this, "Document mis ajours", Toast.LENGTH_SHORT).show()

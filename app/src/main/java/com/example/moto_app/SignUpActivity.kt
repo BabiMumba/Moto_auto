@@ -82,7 +82,8 @@ class SignUpActivity : AppCompatActivity() {
         return super.onSupportNavigateUp()
     }
     fun cretedoc(nom:String){
-        var noms = nom.replaceAfter("@","")
+        var time = System.currentTimeMillis()
+        var noms = nom.replaceAfter("@","")+time
         val db = FirebaseFirestore.getInstance()
         val point:MutableMap<String , Any> = HashMap()
         point["Point"] = 5
