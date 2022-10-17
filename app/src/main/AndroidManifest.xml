@@ -75,7 +75,7 @@
             android:value="@string/app_id_reel" />
 
         <service
-            android:name=".MyFirebaseMessagingService"
+            android:name=".fcm.Myservice_firebase"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
