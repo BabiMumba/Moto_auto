@@ -29,7 +29,7 @@ class InterstitialActivity : AppCompatActivity() {
 
         MobileAds.setRequestConfiguration(
             RequestConfiguration.Builder()
-                .setTestDeviceIds(listOf("c0404e6b-d5c3-4498-89e3-7ae83f90e059","c0404e6b-d5c3-4498-89e3-7ae83f90e059"))
+                .setTestDeviceIds(listOf("c0404e6b-d5c3-4498-89e3-7ae83f90e059","1bda7af6-ef75-48d9-a0d7-2ea9121c42e6"))
                 .build()
         )
         loadInterstitialAd()
