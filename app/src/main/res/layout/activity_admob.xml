@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_id_teste" />
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_reel" />
 
 </RelativeLayout>
