@@ -116,11 +116,9 @@ class RewardiActivity : AppCompatActivity() {
                         Toast.makeText(this@RewardiActivity, "pub valider", Toast.LENGTH_SHORT).show()
                         Log.d(TAG,"onAdImpression: ")
                     }
-
                     override fun onAdShowedFullScreenContent() {
                         super.onAdShowedFullScreenContent()
                         Log.d(TAG,"onAdShowFullScreencontente: ")
-
                     }
 
                 }
@@ -132,7 +130,7 @@ class RewardiActivity : AppCompatActivity() {
         }
         else{
             Log.d(TAG,"chargement echouer")
-            Toast.makeText(this, "chergement echouer", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "chargement echouer", Toast.LENGTH_SHORT).show()
         }
     }
     private fun loadAndShowRewarded(){
@@ -144,7 +142,7 @@ class RewardiActivity : AppCompatActivity() {
 
         RewardedInterstitialAd.load(
             this,
-            resources.getString(R.string.rewarded_ad_reel),
+            resources.getString(R.string.rewarded_id_teste),
             AdRequest.Builder().build(),
             object : RewardedInterstitialAdLoadCallback(){
                 override fun onAdFailedToLoad(loadAdError: LoadAdError) {
