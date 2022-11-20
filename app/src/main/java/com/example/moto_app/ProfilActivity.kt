@@ -21,6 +21,7 @@ class ProfilActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
+
         binding.countDown.setOnClickListener {
             startActivity(Intent(this,CountDownActivity::class.java))
         }
@@ -35,6 +36,7 @@ class ProfilActivity : AppCompatActivity() {
         }
 
         binding.logout.setOnClickListener {
+
             firebaseAuth.signOut()
             checkUser()
         }

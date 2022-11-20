@@ -48,6 +48,7 @@ class LoginActivity : AppCompatActivity() {
         password = binding.passwordLogin.text.toString().trim()
         if (!Patterns.EMAIL_ADDRESS.matcher(mail).matches()){
             binding.mailLogin.setError("mail invalide")
+
         }else if(TextUtils.isEmpty(password)){
             binding.passwordLogin.error = "please enter the password"
         }else{

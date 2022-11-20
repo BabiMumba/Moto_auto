@@ -33,6 +33,7 @@ class SignUpActivity : AppCompatActivity() {
         progressDialog.setCanceledOnTouchOutside(false)
 
         firebaseAuth = FirebaseAuth.getInstance()
+
         binding.btnRegister.setOnClickListener {
             valideteData()
         }
@@ -48,7 +49,7 @@ class SignUpActivity : AppCompatActivity() {
         }else if (TextUtils.isEmpty(password)){
             binding.passwordRegister.error= "entrer votre mot de passe"
         }else if(password.length < 6){
-            binding.passwordRegister.error = "le mot de passe doit contenir aumoins 6 caractere"
+            binding.passwordRegister.error = "le mot de passe doit contenir au moins 6 caractere"
 
         }else
         {
@@ -59,6 +60,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun firebaseSignUp() {
+
         progressDialog.show()
         firebaseAuth.createUserWithEmailAndPassword(mail,password)
             .addOnSuccessListener {
@@ -84,6 +86,7 @@ class SignUpActivity : AppCompatActivity() {
     fun cretedoc(nom:String){
         var time = System.currentTimeMillis()
         var noms = nom.replaceAfter("@","")+time
+
         val db = FirebaseFirestore.getInstance()
         val point:MutableMap<String , Any> = HashMap()
         point["Point"] = 5
